@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'purecss/build/pure-min.css';
-import App from './App';
+import 'spectre.css/dist/spectre.css';
+import App from './components/App/App';
 
 ReactDOM.render(React.createElement(App), document.getElementById('root'));
