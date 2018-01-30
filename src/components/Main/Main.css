@@ -6,3 +6,8 @@
   .main__header {
     margin-top: 20px;
   }
+
+  .main__content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
