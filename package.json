@@ -12,7 +12,7 @@
   "scripts": {
     "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
-    "eslint": "./node_modules/eslint/bin/eslint.js . --fix",
+    "eslint": "./node_modules/eslint/bin/eslint.js . --ext .jsx --ext .js --fix",
     "precommit": "lint-staged"
   },
   "lint-staged": {
