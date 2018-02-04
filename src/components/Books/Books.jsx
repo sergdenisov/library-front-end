@@ -1,23 +1,21 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import Book from "../Book/Book";
 
-function Books() {
+function Books({ books }) {
   return (
     <Fragment>
-      <div className="column col-3 mb-2">
-        <Book
-          title="Название книги"
-          description="Описание книги"
-          authors={[{ id: 1, text: "Имя автора 1" }]}
-          tags={[{ id: 1, text: "Тег 1" }]}
-          year="2007"
-          link="https://hh.ru"
-          countTotal={3}
-          countCurrent={2}
-        />
-      </div>
+      {books.map(book => (
+        <div className="column col-3 mb-2" key={book.id}>
+          <Book {...book} />
+        </div>
+      ))}
     </Fragment>
   );
 }
+
+Books.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default Books;

@@ -33,7 +33,11 @@ function Book({
           )}
         </h5>
         <h6 className="card-subtitle text-gray">
-          {tags.map(tag => <span className="label mr-2">{tag.text}</span>)}
+          {tags.map(tag => (
+            <span className="label mr-2" key={tag.id}>
+              {tag.text}
+            </span>
+          ))}
         </h6>
       </div>
       <div className="card-image">
@@ -54,7 +58,7 @@ Book.propTypes = {
   authors: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired
     })
   ),
   tags: PropTypes.arrayOf(
