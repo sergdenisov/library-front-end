@@ -2,18 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import book from "./Book.jpg";
 
-function Book({
-  title,
-  description,
-  authors,
-  tags,
-  year,
-  link,
-  countTotal,
-  countCurrent
-}) {
-  const countRemaining = countTotal - countCurrent;
-
+function Book({ title, description, authors, tags, year, link, countCurrent }) {
   return (
     <article className="card">
       <div className="card-header">
@@ -29,7 +18,7 @@ function Book({
         <h5 className="card-subtitle text-gray">
           {authors.map(
             (author, index) =>
-              `${author.text}${index !== authors.length - 1 ? ", " : ""}`
+              `${author.name}${index !== authors.length - 1 ? ", " : ""}`
           )}
         </h5>
         <h6 className="card-subtitle text-gray">
@@ -46,7 +35,7 @@ function Book({
       <div className="card-body">{description}</div>
       <div className="card-footer">
         <span className="label label-secondary">{`${year} год`}</span>
-        <span className="label label-success ml-2">{`Осталось: ${countRemaining}`}</span>
+        <span className="label label-success ml-2">{`Осталось: ${countCurrent}`}</span>
       </div>
     </article>
   );
@@ -69,7 +58,6 @@ Book.propTypes = {
   ),
   year: PropTypes.number.isRequired,
   link: PropTypes.string,
-  countTotal: PropTypes.number.isRequired,
   countCurrent: PropTypes.number.isRequired
 };
 

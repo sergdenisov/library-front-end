@@ -3,8 +3,10 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import "./Main.css";
-import Books from "../Books/Books";
 import { getBooks } from "../../actions/books";
+import Button from "../Button/Button";
+import Books from "../Books/Books";
+import Modal from "../BookModal/BookModal";
 
 class Main extends Component {
   static propTypes = {
@@ -14,19 +16,45 @@ class Main extends Component {
     }).isRequired
   };
 
+  state = {
+    isModalOpen: false
+  };
+
   componentDidMount() {
     this.props.actions.getBooks();
   }
 
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
+  };
+
   render() {
     const { books } = this.props;
+    const { isModalOpen } = this.state;
 
     return (
       <main className="main">
-        <h1 className="main__header">Книги</h1>
+        <div className="main__header">
+          <h1>Книги</h1>
+          <Button
+            action="plus"
+            size="lg"
+            type="primary"
+            onClick={this.openModal}
+          />
+        </div>
         <div className="columns main__content">
           <Books books={books} />
         </div>
+        <Modal
+          headerText="Добавление новой книги"
+          isOpen={isModalOpen}
+          onClose={this.closeModal}
+        />
       </main>
     );
   }

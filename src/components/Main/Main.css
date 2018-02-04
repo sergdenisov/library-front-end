@@ -5,6 +5,9 @@
 
   .main__header {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
 
   .main__content {
