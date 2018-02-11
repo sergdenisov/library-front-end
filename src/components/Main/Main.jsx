@@ -60,14 +60,9 @@ class Main extends Component {
   }
 }
 
-function mapStateToProps({ books }) {
-  return { books };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
+export default connect(
+  ({ books }) => ({ books }),
+  dispatch => ({
     actions: bindActionCreators({ getBooks }, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+  })
+)(Main);

@@ -153,10 +153,6 @@ class BookModal extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators({ addBook }, dispatch)
-  };
-}
-
-export default connect(null, mapDispatchToProps)(BookModal);
+export default connect(null, dispatch => ({
+  actions: bindActionCreators({ addBook }, dispatch)
+}))(BookModal);
