@@ -14,4 +14,4 @@ export const getBooks = () => dispatch => {
 const pushBook = book => ({ type: PUSH_BOOK, book });
 
 export const addBook = bookData => dispatch =>
-  api.addBook({ ...bookData }).then(book => dispatch(pushBook(book)));
+  api.addBook(bookData).then(book => dispatch(pushBook(book)));

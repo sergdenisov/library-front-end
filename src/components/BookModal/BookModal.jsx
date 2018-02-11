@@ -30,10 +30,10 @@ class BookModal extends Component {
     isOpen: false
   };
 
-  state = { ...defaultState };
+  state = defaultState;
 
   close = () => {
-    this.setState({ ...defaultState });
+    this.setState(defaultState);
     this.props.onClose();
   };
 
@@ -54,7 +54,7 @@ class BookModal extends Component {
       tags: tags.split(",").map(tag => ({ text: tag.trim() }))
     });
     onClose();
-    this.setState({ ...defaultState });
+    this.setState(defaultState);
   };
 
   render() {
