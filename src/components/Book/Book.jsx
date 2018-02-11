@@ -16,10 +16,7 @@ function Book({ title, description, authors, tags, year, link, countCurrent }) {
           )}
         </h4>
         <h5 className="card-subtitle text-gray">
-          {authors.map(
-            (author, index) =>
-              `${author.name}${index !== authors.length - 1 ? ", " : ""}`
-          )}
+          {authors.map(author => author.name).join(", ")}
         </h5>
         <h6 className="card-subtitle text-gray">
           {tags.map(tag => (
