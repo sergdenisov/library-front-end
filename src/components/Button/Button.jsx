@@ -1,23 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 
 function Button({ children, isSubmit, action, size, type, onClick }) {
-  const classNames = ["btn"];
-
-  if (action) {
-    classNames.push("btn-action");
-  }
-  if (size) {
-    classNames.push(`btn-${size}`);
-  }
-  if (type) {
-    classNames.push(`btn-${type}`);
-  }
+  const classNames = classnames("btn", {
+    "btn-action": action,
+    [`btn-${size}`]: size,
+    [`btn-${type}`]: type
+  });
 
   return (
     <button
       type={isSubmit ? "submit" : "button"}
-      className={classNames.join(" ")}
+      className={classNames}
       onClick={onClick}
     >
       {children}

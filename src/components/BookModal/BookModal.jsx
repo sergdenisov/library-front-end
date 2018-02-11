@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 import Button from "../Button/Button";
 import FormElement from "../FormElement/FormElement";
 import { addBook } from "../../actions/books";
@@ -70,7 +71,7 @@ class BookModal extends Component {
     } = this.state;
 
     return (
-      <section className={`modal${isOpen ? " active" : ""}`}>
+      <section className={classnames("modal", { active: isOpen })}>
         <div
           className="modal-overlay"
           onClick={this.close}
