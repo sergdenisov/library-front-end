@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
+import Icon from "../Icon/Icon";
 
 function Button({ children, isSubmit, action, size, type, onClick }) {
   const classNames = classnames("btn", {
@@ -16,7 +17,7 @@ function Button({ children, isSubmit, action, size, type, onClick }) {
       onClick={onClick}
     >
       {children}
-      {action ? <i className={`icon icon-${action}`} /> : null}
+      <Icon action={action} />
     </button>
   );
 }
@@ -24,7 +25,7 @@ function Button({ children, isSubmit, action, size, type, onClick }) {
 Button.propTypes = {
   children: PropTypes.string,
   isSubmit: PropTypes.bool,
-  action: PropTypes.oneOf(["", "plus"]),
+  action: PropTypes.string,
   size: PropTypes.oneOf(["", "lg"]),
   type: PropTypes.oneOf(["", "clear", "primary", "link"]),
   onClick: PropTypes.func.isRequired
