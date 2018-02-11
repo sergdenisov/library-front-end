@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import Button from "../Button/Button";
-import FormElement from "../FormElement/FormElement";
+import FormElementWrapper from "../FormElementWrapper/FormElementWrapper";
+import Input from "../Input/Input";
+import Textarea from "../Textarea/Textarea";
 import { addBook } from "../../actions/books";
 
 const defaultState = {
@@ -85,59 +87,72 @@ class BookModal extends Component {
             <h5 className="modal-title h5">{headerText}</h5>
           </header>
           <div className="modal-body">
-            <FormElement
-              id="modal-title"
-              name="title"
-              value={title}
-              onChange={this.handleFormElementChange}
-              label="Название"
-            />
-            <FormElement
-              id="modal-description"
-              name="description"
-              value={description}
-              onChange={this.handleFormElementChange}
-              label="Описание"
-              type="textarea"
-            />
-            <FormElement
-              id="modal-authors"
-              name="authors"
-              value={authors}
-              onChange={this.handleFormElementChange}
-              label="Авторы"
-            />
-            <FormElement
-              id="modal-tags"
-              name="tags"
-              value={tags}
-              onChange={this.handleFormElementChange}
-              label="Теги"
-            />
-            <FormElement
-              id="modal-year"
-              name="year"
-              value={year}
-              onChange={this.handleFormElementChange}
-              label="Год"
-              type="number"
-            />
-            <FormElement
-              id="modal-link"
-              name="link"
-              value={link}
-              onChange={this.handleFormElementChange}
-              label="Ссылка"
-              type="url"
-            />
-            <FormElement
-              id="modal-count-total"
-              name="countTotal"
-              value={countTotal}
-              onChange={this.handleFormElementChange}
-              label="Количество"
-              type="number"
-            />
+            <FormElementWrapper htmlFor="modal-title" label="Название">
+              <Input
+                id="modal-title"
+                name="title"
+                value={title}
+                onChange={this.handleFormElementChange}
+                placeholder="Название"
+              />
+            </FormElementWrapper>
+            <FormElementWrapper htmlFor="modal-description" label="Описание">
+              <Textarea
+                id="modal-description"
+                name="description"
+                value={description}
+                onChange={this.handleFormElementChange}
+                placeholder="Описание"
+              />
+            </FormElementWrapper>
+            <FormElementWrapper htmlFor="modal-authors" label="Авторы">
+              <Input
+                id="modal-authors"
+                name="authors"
+                value={authors}
+                onChange={this.handleFormElementChange}
+                placeholder="Авторы"
+              />
+            </FormElementWrapper>
+            <FormElementWrapper htmlFor="modal-tags" label="Теги">
+              <Input
+                id="modal-tags"
+                name="tags"
+                value={tags}
+                onChange={this.handleFormElementChange}
+                placeholder="Теги"
+              />
+            </FormElementWrapper>
+            <FormElementWrapper htmlFor="modal-year" label="Год">
+              <Input
+                id="modal-year"
+                name="year"
+                value={year}
+                onChange={this.handleFormElementChange}
+                placeholder="Год"
+                type="number"
+              />
+            </FormElementWrapper>
+            <FormElementWrapper htmlFor="modal-link" label="Ссылка">
+              <Input
+                id="modal-link"
+                name="link"
+                value={link}
+                onChange={this.handleFormElementChange}
+                placeholder="Ссылка"
+                type="url"
+              />
+            </FormElementWrapper>
+            <FormElementWrapper htmlFor="modal-count-total" label="Количество">
+              <Input
+                id="modal-count-total"
+                name="countTotal"
+                value={countTotal}
+                onChange={this.handleFormElementChange}
+                placeholder="Количество"
+                type="number"
+              />
+            </FormElementWrapper>
           </div>
           <footer className="modal-footer">
             <Button isSubmit type="primary" onClick={this.submit}>
